@@ -2,6 +2,33 @@
 
 \title{大學章句}
 
+%region config
+\definecolor{mutedred}{rgb}{0.729, 0.2, 0.2}
+\zhvtset {
+    main_font           = Noto Serif SC,  % 字体
+    font_size           = 27.32pt,  % 字体尺寸，三分，9.6mm，直接用 9.6mm 会有奇怪的问题
+    baselineskip_ratio  = 1.5,  % 行距与字体尺寸的倍数
+    jiazhu_font         = Noto Serif SC,  % 夹注字体
+    title_font          = Noto Serif SC Bold,  % 书名标题字体
+    paper_width         = 192mm,  % 页面宽度，六寸
+    paper_height        = 288mm,  % 页面高度，九寸
+    page_lines          = 10,  % 每页行数
+    line_chars          = 21,  % 每行字数
+    top_bottom_ratio    = 2,  % 天头地脚比例
+    micro_offset        = 2.76pt,  % 微调位移，使得左右页竖排中文对称
+    grid_line_width     = 1pt,  % 内框线宽度
+    frame_line_width    = 3pt,  % 外框线宽度，默认爲内框线的 3 倍
+    frame_sep           = 6pt,  % 内外框线中心间距，默认爲内框线宽度的 6 倍
+    grid_color          = mutedred, %red,  % 框线、界栏、鱼口颜色
+    grid_lines          = true,  % 是否显示界栏
+    judou_voffset       = -0.15, % -0.4,  % 句读垂直位移，默认向上 -0.4 倍字符尺寸
+    judou_hoffset       = 0.26, %0.3,  % 句读水平位移，默认向右 0.3 倍字符尺寸
+    foreword_margin     = 2,  % 序言环境缩进，字符尺寸的倍数
+    chapter_indent      = 1,  % 章标题缩进，字符尺寸的倍数
+    section_indent      = 2,  % 节标题缩进，字符尺寸的倍数
+}
+%endregion
+
 \begin{document}
 
 \maketitle{宋新安朱文公章句並注}{壬寅夏潤州宜軒製版}[大~學~章~句]

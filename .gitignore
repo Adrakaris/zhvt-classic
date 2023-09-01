@@ -12,6 +12,9 @@
 *.cb2
 .*.lb
 
+**/out/
+./*/zhvt-classic.cls
+
 ## Intermediate documents:
 *.dvi
 *.xdv

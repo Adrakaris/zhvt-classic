@@ -70,6 +70,7 @@
 \dim_new:N  \l__zhvt_frame_sep_dim                % 内外框间距
 \str_new:N  \l__zhvt_grid_color_str               % 栏框颜色
 \bool_new:N \l__zhvt_grid_lines_bool              % 是否显示界栏
+\str_new:N  \l__zhvt_jiazhu_color_str             % 夹注颜色
 \dim_new:N  \l__zhvt_micro_offset_dim             % 字体旋转后，行的视觉中线有所变化，对此进行微调
 \fp_new:N   \l__zhvt_judou_vertical_offset_fp     % 句读垂直位移比例
 \fp_new:N   \l__zhvt_judou_horizontal_offset_fp   % 句读水平位移比例
@@ -117,6 +118,8 @@
     frame_sep           .initial:n = 6\l__zhvt_grid_line_width_dim,
     grid_color          .str_set:N = \l__zhvt_grid_color_str,
     grid_color          .initial:n = red,
+    jiazhu_color        .str_set:N = \l__zhvt_jiazhu_color_str,
+    jiazhu_color        .initial:n = black,
     grid_lines         .bool_set:N = \l__zhvt_grid_lines_bool,
     grid_lines          .initial:n = true,
     judou_voffset        .fp_set:N = \l__zhvt_judou_vertical_offset_fp,
@@ -181,8 +184,8 @@
             \fp_use:N \l__zhvt_judou_horizontal_offset_fp em ) {#1}
     \end{picture}\CJKglue%
   }
-\NewDocumentCommand { \ju } { } { \judou {。} }
-\NewDocumentCommand { \dou } { } { \judou{、} }
+\NewDocumentCommand { \ju } { } { \judou {\textcolor{\l__zhvt_jiazhu_color_str}{。}} }
+\NewDocumentCommand { \dou } { } { \judou{\textcolor{\l__zhvt_jiazhu_color_str}{、}} }
 
 % 注释标记
 \NewDocumentCommand { \notemark } { O { black } m }
@@ -200,12 +203,13 @@
   }
 
 % 注释分割
-\NewDocumentCommand { \quan } { } { \symbol{ "25CB } }
+\NewDocumentCommand { \quan } { } { \symbol{ "25CB } }  % 〇
+\NewDocumentCommand { \kong } { } { \symbol{ "3000 }\symbol{ "3000 } }  % 两个空格
 
 % 序言环境
 \NewDocumentEnvironment{ foreword } { O { \l__zhvt_foreword_margin_int } }
   {%
-    \begin{list} { }
+    \begin{list} {}
       {
         \topsep\z@
         \parskip\z@
